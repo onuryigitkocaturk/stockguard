@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: stockguard-postgres
+    environment:
+      POSTGRES_DB: stockguard
+      POSTGRES_USER: stockguard
+      POSTGRES_PASSWORD: stockguard
+    ports:
+      - "5432:5432"
+    volumes:
+      - stockguard_pgdata:/var/lib/postgresql/data
+
+volumes:
+  stockguard_pgdata:
