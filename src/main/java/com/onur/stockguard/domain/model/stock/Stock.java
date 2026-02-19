@@ -49,4 +49,29 @@ public class Stock {
     public long getAvailableQuantity() {
         return availableQuantity;
     }
+    public void release(Reservation reservation, Instant now) {
+        Objects.requireNonNull(reservation, "reservation cannot be null");
+        Objects.requireNonNull(now, "now cannot be null");
+
+        if (!this.productId.equals(reservation.getProductId())) {
+            throw new DomainRuleViolationException("Reservation does not belong to this stock");
+        }
+
+        if (reservation.getStatus() == ReservationStatus.ACTIVE && reservation.isExpired(now)) {
+            reservation.expire(now);
+        }
+
+        if (reservation.getStatus() == ReservationStatus.CONFIRMED) {
+            throw new DomainRuleViolationException("Cannot release stock for a CONFIRMED reservation");
+        }
+
+        if (reservation.getStatus() == ReservationStatus.CANCELED ||
+                reservation.getStatus() == ReservationStatus.EXPIRED) {
+
+            release(reservation.getQuantity());
+            return;
+        }
+
+        throw new DomainRuleViolationException("Cannot release stock for an ACTIVE reservation");
+    }
 }
