@@ -1,4 +1,4 @@
-package com.onur.stockguard.persistence.entity;
+package com.onur.stockguard.persistence.jpa.entity;
 
 import com.onur.stockguard.domain.model.stock.ReservationStatus;
 import jakarta.persistence.*;

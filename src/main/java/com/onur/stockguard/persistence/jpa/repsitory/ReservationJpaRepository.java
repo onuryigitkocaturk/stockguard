@@ -1,6 +1,6 @@
-package com.onur.stockguard.persistence.repository;
+package com.onur.stockguard.persistence.jpa.repsitory;
 
-import com.onur.stockguard.persistence.entity.ReservationEntity;
+import com.onur.stockguard.persistence.jpa.entity.ReservationEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

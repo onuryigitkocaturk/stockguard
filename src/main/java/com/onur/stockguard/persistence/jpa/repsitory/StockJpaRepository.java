@@ -1,6 +1,6 @@
-package com.onur.stockguard.persistence.repository;
+package com.onur.stockguard.persistence.jpa.repsitory;
 
-import com.onur.stockguard.persistence.entity.StockEntity;
+import com.onur.stockguard.persistence.jpa.entity.StockEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

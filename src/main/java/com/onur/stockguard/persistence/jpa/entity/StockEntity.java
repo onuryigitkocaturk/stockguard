@@ -1,4 +1,4 @@
-package com.onur.stockguard.persistence.entity;
+package com.onur.stockguard.persistence.jpa.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
